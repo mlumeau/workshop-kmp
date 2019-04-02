@@ -1,0 +1,5 @@
+
+include ':kore'
+include ':androidApp'
+
+enableFeaturePreview('GRADLE_METADATA')
