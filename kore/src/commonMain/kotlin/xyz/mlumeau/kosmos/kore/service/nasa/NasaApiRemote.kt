@@ -8,9 +8,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
+import xyz.mlumeau.kosmos.kore.service.nasa.NasaApi
 
 
-class NasaAPI {
+class NasaAPIRemote: NasaApi {
     private val client = HttpClient()
 
 
@@ -27,7 +28,7 @@ class NasaAPI {
         return Json.nonstrict.parse(APOD.serializer(), result)
     }
 
-    fun getAPOD(completion: (APOD) -> Unit) : Job {
+    override fun getAPOD(completion: (APOD) -> Unit) : Job {
 
         return getNetworkScope().launch {
             completion(requestAPOD())

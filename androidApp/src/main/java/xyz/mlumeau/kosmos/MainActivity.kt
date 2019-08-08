@@ -6,13 +6,14 @@ import android.view.View
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Job
-import xyz.mlumeau.kosmos.kore.NasaAPI
+import xyz.mlumeau.kosmos.kore.NasaAPIRemote
 import xyz.mlumeau.kosmos.kore.createApplicationScreenMessage
+import xyz.mlumeau.kosmos.kore.service.nasa.NasaApi
 
 class MainActivity : AppCompatActivity() {
 
     private var job: Job? = null
-    private val nasaAPI = NasaAPI()
+    private val nasaAPI: NasaApi = NasaAPIRemote()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
