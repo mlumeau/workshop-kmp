@@ -4,23 +4,22 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import xyz.mlumeau.kosmos.kore.APOD
 import xyz.mlumeau.kosmos.kore.createApplicationScreenMessage
-import xyz.mlumeau.kosmos.viewmodel.ApodViewModel
+import xyz.mlumeau.kosmos.viewmodel.APODViewModel
 
 class MainActivity : AppCompatActivity() {
-
-    private val apodViewModel: ApodViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         title_tv.text = createApplicationScreenMessage()
 
-        apodViewModel.apod.observe(this, Observer { apod -> updateAPODData(apod) })
+        val model = ViewModelProviders.of(this)[APODViewModel::class.java]
+        model.apod.observe(this, Observer { apod -> updateAPODData(apod) })
     }
 
     private fun updateAPODData(apod: APOD) {
