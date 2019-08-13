@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var progress: UIActivityIndicatorView!
     
     private var job: Kotlinx_coroutines_core_nativeJob?
-    private let nasaAPI = NasaAPI()
+    private let nasaAPI : NasaApi = NasaAPIRemote()
     
     override func viewDidLoad() {
         super.viewDidLoad()
