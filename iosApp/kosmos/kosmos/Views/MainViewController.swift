@@ -10,7 +10,7 @@ import UIKit
 import Nuke
 import kore
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     @IBOutlet weak var apodIV: UIImageView!
     @IBOutlet weak var titleTV: UITextView!
