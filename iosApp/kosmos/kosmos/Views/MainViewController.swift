@@ -11,35 +11,18 @@ import Nuke
 import kore
 
 class MainViewController: UIViewController {
+    
+    let viewModel = MainViewModel()
 
     @IBOutlet weak var apodIV: UIImageView!
     @IBOutlet weak var titleTV: UITextView!
     @IBOutlet weak var descTV: UITextView!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     
-    private var job: Kotlinx_coroutines_core_nativeJob?
-    private let nasaAPI : NasaApi = NasaAPIRemote()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        job = nasaAPI.getAPOD{ apod in
-            let url = URL(string: apod.url ?? "")
-            if(apod.media_type == "image" && apod.title?.isEmpty != true){
-                Nuke.loadImage(with: url!, into: self.apodIV)
-                self.titleTV.text = apod.title
-                self.descTV.text = apod.explanation
-            }else{
-                self.titleTV.text = "Sorry, no picture today :("
-            }
-            self.progress.isHidden = true
-        
-            return .init()
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        job?.cancel()
+        configureUI()
+        configureBinding()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -47,6 +30,32 @@ class MainViewController: UIViewController {
     }
     var style:UIStatusBarStyle = .default
 
+}
+
+private extension MainViewController {
+    
+    func configureUI() {
+    }
+    
+    func configureBinding() {
+        viewModel.startLoadingData(completion: { apod in
+            self.updateAPODData(apod: apod)
+        }, error: onLoadingError)
+    }
+    
+    func updateAPODData(apod: APOD) {
+        let url = URL(string: apod.url ?? "")
+        if(apod.media_type == "image" && apod.title?.isEmpty != true){
+            Nuke.loadImage(with: url!, into: self.apodIV)
+            self.titleTV.text = apod.title
+            self.descTV.text = apod.explanation
+        }else{
+            self.titleTV.text = "Sorry, no picture today :("
+        }
+        self.progress.isHidden = true
+    }
+    
+    func onLoadingError() {}
 }
 
 
