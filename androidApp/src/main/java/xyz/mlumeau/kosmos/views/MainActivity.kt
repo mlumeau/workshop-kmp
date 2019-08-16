@@ -1,4 +1,4 @@
-package xyz.mlumeau.kosmos
+package xyz.mlumeau.kosmos.views
 
 import android.os.Bundle
 import android.view.View
@@ -7,9 +7,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
+import xyz.mlumeau.kosmos.R
 import xyz.mlumeau.kosmos.kore.APOD
 import xyz.mlumeau.kosmos.kore.createApplicationScreenMessage
-import xyz.mlumeau.kosmos.viewmodel.APODViewModel
+import xyz.mlumeau.kosmos.viewmodels.APODViewModel
 
 class MainActivity : AppCompatActivity() {
 
