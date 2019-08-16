@@ -10,5 +10,5 @@ import Foundation
 import kore
 
 protocol GetApod {
-    func getApod(completion: @escaping (APOD)->(), error: ()->())
+    func getApod(completion: @escaping (APOD)->(), error: (()->())?)
 }

@@ -12,8 +12,18 @@ import kore
 final class MainViewModel {
     
     let getApodUseCase: GetApod = GetApodImpl()
+    var apod: APOD? = nil
+    var onAPODLoaded: ((APOD) -> ())? = nil
+    var onLoadingError: (() -> ())? = nil
     
-    func startLoadingData(completion: @escaping (APOD)->(), error: ()->()) {
-        getApodUseCase.getApod(completion: completion, error: error)
+    init() {
+        startLoadingData()
+    }
+    
+    private func startLoadingData() {
+        getApodUseCase.getApod(completion: { apod in
+            self.apod = apod
+            self.onAPODLoaded?(apod)
+        }, error: onLoadingError)
     }
 }

@@ -38,9 +38,8 @@ private extension MainViewController {
     }
     
     func configureBinding() {
-        viewModel.startLoadingData(completion: { apod in
-            self.updateAPODData(apod: apod)
-        }, error: onLoadingError)
+        viewModel.onAPODLoaded = updateAPODData
+        viewModel.onLoadingError = onLoadingError
     }
     
     func updateAPODData(apod: APOD) {

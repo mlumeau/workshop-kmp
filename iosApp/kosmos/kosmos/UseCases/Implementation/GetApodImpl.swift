@@ -14,7 +14,7 @@ class GetApodImpl: GetApod {
     private var job: Kotlinx_coroutines_core_nativeJob?
     private let nasaAPI : NasaApi = NasaAPIRemote()
     
-    func getApod(completion: @escaping (APOD)->(), error: ()->()) {
+    func getApod(completion: @escaping (APOD)->(), error: (()->())?) {
         job = nasaAPI.getAPOD{ apod in
             completion(apod)
             
