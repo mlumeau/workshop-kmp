@@ -11,7 +11,7 @@ import kore
 
 final class MainViewModel {
     
-    let getApodUseCase: GetApod = GetApodImpl()
+    private let getApodUseCase: GetAPOD = GetAPODImpl()
     var apod: APOD? = nil
     var onAPODLoaded: ((APOD) -> ())? = nil
     var onLoadingError: (() -> ())? = nil
@@ -21,9 +21,13 @@ final class MainViewModel {
     }
     
     private func startLoadingData() {
-        getApodUseCase.getApod(completion: { apod in
+        getApodUseCase.getAPOD(completion: { apod in
             self.apod = apod
             self.onAPODLoaded?(apod)
-        }, error: onLoadingError)
+            return .init()
+        }, failure: { () in
+            self.onLoadingError?()
+            return .init()
+        })
     }
 }

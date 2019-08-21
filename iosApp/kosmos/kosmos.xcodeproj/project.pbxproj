@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0027E7A62303543C001D3EDF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027E7A52303543C001D3EDF /* MainViewModel.swift */; };
-		0027E7A923035595001D3EDF /* GetApod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027E7A823035595001D3EDF /* GetApod.swift */; };
-		0027E7AD23035670001D3EDF /* GetApodImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027E7AC23035670001D3EDF /* GetApodImpl.swift */; };
 		6F7AD4613A9F7CCBF1180848 /* Pods_kosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62F2C8C15F0130C2DAA4B74 /* Pods_kosmos.framework */; };
 		7ED897762239795800F067C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED897752239795800F067C2 /* AppDelegate.swift */; };
 		7ED897782239795800F067C2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED897772239795800F067C2 /* MainViewController.swift */; };
@@ -55,8 +53,6 @@
 
 /* Begin PBXFileReference section */
 		0027E7A52303543C001D3EDF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		0027E7A823035595001D3EDF /* GetApod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetApod.swift; sourceTree = "<group>"; };
-		0027E7AC23035670001D3EDF /* GetApodImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetApodImpl.swift; sourceTree = "<group>"; };
 		792B314EA246010B3EBB9C9D /* Pods-kosmos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kosmos.debug.xcconfig"; path = "Target Support Files/Pods-kosmos/Pods-kosmos.debug.xcconfig"; sourceTree = "<group>"; };
 		7ED897722239795800F067C2 /* kosmos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kosmos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED897752239795800F067C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,23 +115,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		0027E7A7230354CD001D3EDF /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				0027E7AB23035654001D3EDF /* Implementation */,
-				0027E7A823035595001D3EDF /* GetApod.swift */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		0027E7AB23035654001D3EDF /* Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				0027E7AC23035670001D3EDF /* GetApodImpl.swift */,
-			);
-			path = Implementation;
-			sourceTree = "<group>";
-		};
 		7ED897692239795800F067C2 = {
 			isa = PBXGroup;
 			children = (
@@ -162,7 +141,6 @@
 		7ED897742239795800F067C2 /* kosmos */ = {
 			isa = PBXGroup;
 			children = (
-				0027E7A7230354CD001D3EDF /* UseCases */,
 				0027E7A423035348001D3EDF /* Views */,
 				0027E7A323035336001D3EDF /* ViewModels */,
 				7ED897752239795800F067C2 /* AppDelegate.swift */,
@@ -403,8 +381,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0027E7AD23035670001D3EDF /* GetApodImpl.swift in Sources */,
-				0027E7A923035595001D3EDF /* GetApod.swift in Sources */,
 				7ED897782239795800F067C2 /* MainViewController.swift in Sources */,
 				7ED897762239795800F067C2 /* AppDelegate.swift in Sources */,
 				0027E7A62303543C001D3EDF /* MainViewModel.swift in Sources */,

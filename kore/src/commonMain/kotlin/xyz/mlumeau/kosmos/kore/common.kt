@@ -1,5 +1,7 @@
 package xyz.mlumeau.kosmos.kore
 
+import xyz.mlumeau.kosmos.usecases.implementations.GetAPODImpl
+
 
 expect fun platformName(): String
 
@@ -10,3 +12,5 @@ fun createApplicationScreenMessage() : String {
 internal fun helloCoroutine() {
     println("Hello Coroutines!")
 }
+
+expect fun requestAPOD(getAPODImpl: GetAPODImpl, completion: (APOD) -> Unit, failure: () -> Unit)

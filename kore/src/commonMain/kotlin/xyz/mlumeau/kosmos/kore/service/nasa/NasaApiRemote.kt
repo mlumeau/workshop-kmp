@@ -5,13 +5,11 @@ import io.ktor.client.call.call
 import io.ktor.client.response.readText
 import io.ktor.http.HttpMethod
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import xyz.mlumeau.kosmos.kore.service.nasa.NasaApi
 
 
-class NasaAPIRemote(
+internal class NasaAPIRemote(
     private val client: HttpClient = HttpClient()
 ) : NasaApi {
 
@@ -25,13 +23,6 @@ class NasaAPIRemote(
         val result = request(APOD_URL)
 
         return Json.nonstrict.parse(APOD.serializer(), result)
-    }
-
-    override fun getAPOD(completion: (APOD) -> Unit) : Job {
-
-        return getNetworkScope().launch {
-            completion(requestAPOD())
-        }
     }
 
     override suspend fun getAPOD(): APOD = requestAPOD()

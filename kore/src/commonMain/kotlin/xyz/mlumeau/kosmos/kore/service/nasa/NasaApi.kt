@@ -1,9 +1,7 @@
 package xyz.mlumeau.kosmos.kore.service.nasa
 
-import kotlinx.coroutines.Job
 import xyz.mlumeau.kosmos.kore.APOD
 
-interface NasaApi {
-    fun getAPOD(completion: (APOD) -> Unit) : Job
+internal interface NasaApi {
     suspend fun getAPOD(): APOD
 }
