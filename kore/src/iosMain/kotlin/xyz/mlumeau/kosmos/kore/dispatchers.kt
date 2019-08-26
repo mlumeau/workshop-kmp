@@ -17,7 +17,9 @@ internal class MainDispatcher: CoroutineDispatcher() {
     }
 }
 
-internal abstract class Scope(private val dispatcher: CoroutineDispatcher): CoroutineScope {
+internal abstract class Scope(
+    private val dispatcher: CoroutineDispatcher
+) : CoroutineScope {
     private val job = Job()
 
     override val coroutineContext: CoroutineContext

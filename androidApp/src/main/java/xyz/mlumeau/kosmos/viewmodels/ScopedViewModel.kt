@@ -1,4 +1,4 @@
-package xyz.mlumeau.kosmos.viewmodel
+package xyz.mlumeau.kosmos.viewmodels
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
