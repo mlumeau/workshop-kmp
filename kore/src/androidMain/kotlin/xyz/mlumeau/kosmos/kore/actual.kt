@@ -2,7 +2,7 @@ package xyz.mlumeau.kosmos.kore
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import xyz.mlumeau.kosmos.usecases.implementations.GetAPODImpl
+import xyz.mlumeau.kosmos.kore.usecases.implementations.GetAPODImpl
 
 actual fun platformName(): String {
     return "Android"

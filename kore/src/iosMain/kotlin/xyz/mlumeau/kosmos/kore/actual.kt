@@ -3,7 +3,7 @@ package xyz.mlumeau.kosmos.kore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import platform.UIKit.UIDevice
-import xyz.mlumeau.kosmos.usecases.implementations.GetAPODImpl
+import xyz.mlumeau.kosmos.kore.usecases.implementations.GetAPODImpl
 
 actual fun platformName(): String {
     return UIDevice.currentDevice.systemName() +
