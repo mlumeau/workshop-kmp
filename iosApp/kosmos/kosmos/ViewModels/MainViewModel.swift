@@ -10,13 +10,14 @@ import Foundation
 import kore
 
 final class MainViewModel {
-    
-    private let getApodUseCase: GetAPOD = GetAPODImpl()
+    private let getConnectionState: GetConnectionState = GetConnectionStateIos()
+    private let getApodUseCase: GetAPOD
     var apod: APOD? = nil
     var onAPODLoaded: ((APOD) -> ())? = nil
     var onLoadingError: (() -> ())? = nil
     
     init() {
+        getApodUseCase = GetAPODImpl(getConnectionState: getConnectionState)
         startLoadingData()
     }
     

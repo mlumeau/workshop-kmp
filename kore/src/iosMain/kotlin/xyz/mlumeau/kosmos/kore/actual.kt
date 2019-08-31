@@ -17,8 +17,6 @@ fun showHelloCoroutine() {
     }
 }
 
-actual fun isConnected() = true
-
 actual fun getNetworkScope() = MainScope() as CoroutineScope
 
 actual fun requestAPOD(getAPODImpl: GetAPODImpl, completion: (APOD) -> Unit, failure: () -> Unit) {

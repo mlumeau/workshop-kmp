@@ -13,6 +13,4 @@ internal fun helloCoroutine() {
     println("Hello Coroutines!")
 }
 
-expect fun isConnected(): Boolean
-
 expect fun requestAPOD(getAPODImpl: GetAPODImpl, completion: (APOD) -> Unit, failure: () -> Unit)
