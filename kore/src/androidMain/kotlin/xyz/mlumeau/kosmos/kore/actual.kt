@@ -12,6 +12,8 @@ actual fun getNetworkScope(): CoroutineScope {
     return CoroutineScope(Dispatchers.IO)
 }
 
+actual fun isConnected() = true
+
 actual fun requestAPOD(getAPODImpl: GetAPODImpl, completion: (APOD) -> Unit, failure: () -> Unit) {
     TODO("The Android app must use the suspend function instead.")
 }
