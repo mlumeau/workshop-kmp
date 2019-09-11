@@ -6,7 +6,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
-abstract class ScopedViewModel: ViewModel(), CoroutineScope {
+abstract class ScopedViewModel : ViewModel(),
+    CoroutineScope {
     private val job = Job()
     val parentJob: Job
         get() = job

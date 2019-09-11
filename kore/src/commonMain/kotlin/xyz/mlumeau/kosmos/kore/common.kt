@@ -5,7 +5,7 @@ import xyz.mlumeau.kosmos.kore.usecases.implementations.GetAPODImpl
 
 expect fun platformName(): String
 
-fun createApplicationScreenMessage() : String {
+fun createApplicationScreenMessage(): String {
     return "Kotlin Rocks on ${platformName()}"
 }
 

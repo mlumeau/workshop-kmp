@@ -11,6 +11,7 @@ import xyz.mlumeau.kosmos.R
 import xyz.mlumeau.kosmos.kore.APOD
 import xyz.mlumeau.kosmos.kore.createApplicationScreenMessage
 import xyz.mlumeau.kosmos.viewmodels.APODViewModel
+import xyz.mlumeau.kosmos.viewmodels.APODViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         title_tv.text = createApplicationScreenMessage()
 
-        val model = ViewModelProviders.of(this)[APODViewModel::class.java]
+        val model =
+            ViewModelProviders.of(this, APODViewModelFactory(this))[APODViewModel::class.java]
         model.apod.observe(this, Observer { apod -> updateAPODData(apod) })
     }
 
