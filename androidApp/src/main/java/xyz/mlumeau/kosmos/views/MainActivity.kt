@@ -12,12 +12,12 @@ import kotlinx.coroutines.withContext
 import xyz.mlumeau.kosmos.R
 import xyz.mlumeau.kosmos.kore.APOD
 import xyz.mlumeau.kosmos.kore.createApplicationScreenMessage
-import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemote
-import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemoteImpl
+import xyz.mlumeau.kosmos.kore.data.APODRepositoryCache
+import xyz.mlumeau.kosmos.kore.data.APODRepositoryCacheImpl
 
 class MainActivity : AppCompatActivity() {
 
-    private val apodRepository: APODRepositoryRemote = APODRepositoryRemoteImpl()
+    private val apodRepository: APODRepositoryCache = APODRepositoryCacheImpl()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

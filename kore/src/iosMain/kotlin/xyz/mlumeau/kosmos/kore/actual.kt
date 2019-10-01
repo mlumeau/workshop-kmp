@@ -1,10 +1,8 @@
 package xyz.mlumeau.kosmos.kore
 
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import platform.UIKit.UIDevice
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryCacheImpl
-import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemoteImpl
 
 actual fun platformName(): String {
     return UIDevice.currentDevice.systemName() +
@@ -15,23 +13,6 @@ actual fun platformName(): String {
 fun showHelloCoroutine() {
     MainScope().launch {
         helloCoroutine()
-    }
-}
-
-fun getNetworkScope() = MainScope() as CoroutineScope
-
-actual fun requestAPOD(
-    apodRepositoryRemote: APODRepositoryRemoteImpl,
-    completion: (APOD) -> Unit,
-    failure: () -> Unit
-) {
-    getNetworkScope().launch {
-        val apod = apodRepositoryRemote.getAPOD()
-        if (apod != null) {
-            completion(apod)
-        } else {
-            failure()
-        }
     }
 }
 

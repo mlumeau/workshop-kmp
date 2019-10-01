@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var descTV: UITextView!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     
-    private let apodRepository: APODRepositoryRemote = APODRepositoryRemoteImpl()
+    private let apodRepository: APODRepositoryCache = APODRepositoryCacheImpl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
