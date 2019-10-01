@@ -16,7 +16,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.titleTV.text = CommonKt.createApplicationScreenMessage()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
