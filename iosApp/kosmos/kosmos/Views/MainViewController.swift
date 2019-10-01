@@ -11,18 +11,17 @@ import Nuke
 import kore
 
 class MainViewController: UIViewController {
-    
-    let viewModel = MainViewModel()
 
     @IBOutlet weak var apodIV: UIImageView!
     @IBOutlet weak var titleTV: UITextView!
     @IBOutlet weak var descTV: UITextView!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     
+    private let apodRepository: APODRepositoryRemote = APODRepositoryRemoteImpl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        configureBinding()
+        startLoadingData()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -34,12 +33,14 @@ class MainViewController: UIViewController {
 
 private extension MainViewController {
     
-    func configureUI() {
-    }
-    
-    func configureBinding() {
-        viewModel.onAPODLoaded = updateAPODData
-        viewModel.onLoadingError = onLoadingError
+    private func startLoadingData() {
+        apodRepository.getAPOD(completion: { apod in
+            self.updateAPODData(apod: apod)
+            return .init()
+        }, failure: { () in
+            self.onLoadingError()
+            return .init()
+        })
     }
     
     func updateAPODData(apod: APOD) {
