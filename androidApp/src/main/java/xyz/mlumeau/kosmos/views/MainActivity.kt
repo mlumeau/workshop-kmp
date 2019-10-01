@@ -26,12 +26,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateAPODData(apod: APOD) {
+        title_tv.text = apod.title
+        desc_tv.text = apod.explanation
         if (apod.media_type == "image" && !apod.url.isNullOrEmpty()) {
             Picasso.get().load(apod.url).fit().centerCrop().into(apod_iv)
-            title_tv.text = apod.title
-            desc_tv.text = apod.explanation
         } else {
-            title_tv.text = "Sorry, no picture today :("
+            apod_iv.visibility = View.GONE
         }
         progress.visibility = View.GONE
     }

@@ -44,12 +44,12 @@ private extension MainViewController {
     
     func updateAPODData(apod: APOD) {
         let url = URL(string: apod.url ?? "")
-        if(apod.media_type == "image" && apod.title?.isEmpty != true){
+        self.titleTV.text = apod.title
+        self.descTV.text = apod.explanation
+        if(apod.media_type == "image"){
             Nuke.loadImage(with: url!, into: self.apodIV)
-            self.titleTV.text = apod.title
-            self.descTV.text = apod.explanation
-        }else{
-            self.titleTV.text = "Sorry, no picture today :("
+        } else {
+            //self.apodIV.frame = CGRect(x: 0,y: 0,width: 0,height: 0)
         }
         self.progress.isHidden = true
     }
