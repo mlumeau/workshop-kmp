@@ -3,5 +3,5 @@ package xyz.mlumeau.kosmos.kore.data
 import xyz.mlumeau.kosmos.kore.APOD
 
 interface APODRepositoryRemote {
-    suspend fun getAPOD(): APOD
+    suspend fun getAPOD(): APOD?
 }

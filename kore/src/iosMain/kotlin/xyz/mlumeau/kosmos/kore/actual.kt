@@ -21,6 +21,11 @@ actual fun getNetworkScope() = MainScope() as CoroutineScope
 
 actual fun requestAPOD(getAPODImpl: GetAPODImpl, completion: (APOD) -> Unit, failure: () -> Unit) {
     MainScope().launch {
-        completion(getAPODImpl())
+        val apod = getAPODImpl()
+        if (apod != null) {
+            completion(apod)
+        } else {
+            failure()
+        }
     }
 }

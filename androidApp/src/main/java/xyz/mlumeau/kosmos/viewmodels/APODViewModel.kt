@@ -30,9 +30,10 @@ class APODViewModel(
 
     private fun startLoadingData() {
         launch {
-            val apod = getApodUseCase()
-            withContext(Dispatchers.Main) {
-                _apod.value = apod
+            getApodUseCase()?.let { apod ->
+                withContext(Dispatchers.Main) {
+                    _apod.value = apod
+                }
             }
         }
     }

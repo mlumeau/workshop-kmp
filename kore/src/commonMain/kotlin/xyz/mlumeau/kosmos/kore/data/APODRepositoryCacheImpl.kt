@@ -5,7 +5,7 @@ import xyz.mlumeau.kosmos.kore.APOD
 
 class APODRepositoryCacheImpl : APODRepositoryCache {
 
-    override suspend fun getAPOD(): APOD = Json.nonstrict.parse(APOD.serializer(), APOD_STUB)
+    override suspend fun getAPOD(): APOD? = Json.nonstrict.parse(APOD.serializer(), APOD_STUB)
 
     companion object {
         private const val APOD_STUB =
