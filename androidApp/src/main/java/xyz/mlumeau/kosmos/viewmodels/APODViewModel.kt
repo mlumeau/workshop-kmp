@@ -7,10 +7,10 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import xyz.mlumeau.kosmos.kore.APOD
-import xyz.mlumeau.kosmos.usecases.GetAPOD
+import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemote
 
 class APODViewModel(
-    private val getApodUseCase: GetAPOD
+    private val apodRepository: APODRepositoryRemote
 ) : ScopedViewModel() {
 
     private var job: Job? = null
@@ -30,7 +30,7 @@ class APODViewModel(
 
     private fun startLoadingData() {
         launch {
-            getApodUseCase()?.let { apod ->
+            apodRepository.getAPOD()?.let { apod ->
                 withContext(Dispatchers.Main) {
                     _apod.value = apod
                 }

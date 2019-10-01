@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         title_tv.text = createApplicationScreenMessage()
 
         val model =
-            ViewModelProviders.of(this, APODViewModelFactory(this))[APODViewModel::class.java]
+            ViewModelProviders.of(this, APODViewModelFactory())[APODViewModel::class.java]
         model.apod.observe(this, Observer { apod -> updateAPODData(apod) })
     }
 

@@ -4,6 +4,5 @@ import xyz.mlumeau.kosmos.kore.APOD
 
 interface APODRepositoryCache {
     suspend fun getAPOD(): APOD?
-    fun setLastCacheTime(lastCache: Long)
-    fun isProjectsCacheExpired(): Boolean
+    fun getAPOD(completion: (APOD) -> Unit, failure: () -> Unit)
 }
