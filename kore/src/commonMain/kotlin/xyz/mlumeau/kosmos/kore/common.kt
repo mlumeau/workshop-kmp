@@ -1,5 +1,6 @@
 package xyz.mlumeau.kosmos.kore
 
+import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.usecases.implementations.GetAPODImpl
 
 

@@ -6,6 +6,7 @@ import io.ktor.client.response.readText
 import io.ktor.http.HttpMethod
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.serialization.json.Json
+import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.service.nasa.NasaApi
 
 
