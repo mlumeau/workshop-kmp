@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import xyz.mlumeau.kosmos.R
-import xyz.mlumeau.kosmos.kore.APOD
+import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.createApplicationScreenMessage
 import xyz.mlumeau.kosmos.viewmodels.APODViewModel
 import xyz.mlumeau.kosmos.viewmodels.APODViewModelFactory

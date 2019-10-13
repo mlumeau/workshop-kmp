@@ -1,4 +1,4 @@
-package xyz.mlumeau.kosmos.kore
+package xyz.mlumeau.kosmos.kore.model
 
 import kotlinx.serialization.Optional
 import kotlinx.serialization.Serializable

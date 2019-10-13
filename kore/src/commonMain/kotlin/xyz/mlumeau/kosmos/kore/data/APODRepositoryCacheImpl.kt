@@ -1,7 +1,7 @@
 package xyz.mlumeau.kosmos.kore.data
 
 import kotlinx.serialization.json.Json
-import xyz.mlumeau.kosmos.kore.APOD
+import xyz.mlumeau.kosmos.kore.model.APOD
 
 class APODRepositoryCacheImpl : APODRepositoryCache {
 
