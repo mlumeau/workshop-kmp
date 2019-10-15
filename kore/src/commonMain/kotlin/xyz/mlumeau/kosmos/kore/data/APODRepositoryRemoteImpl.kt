@@ -1,6 +1,6 @@
 package xyz.mlumeau.kosmos.kore.data
 
-import xyz.mlumeau.kosmos.kore.APOD
+import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.NasaAPIRemote
 import xyz.mlumeau.kosmos.kore.requestAPOD
 import xyz.mlumeau.kosmos.kore.service.nasa.NasaApi
