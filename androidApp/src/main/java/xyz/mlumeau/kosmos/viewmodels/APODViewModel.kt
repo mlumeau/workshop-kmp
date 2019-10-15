@@ -6,7 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import xyz.mlumeau.kosmos.kore.APOD
+import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.usecases.GetAPOD
 
 class APODViewModel(

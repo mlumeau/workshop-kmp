@@ -1,6 +1,6 @@
 package xyz.mlumeau.kosmos.kore.usecases.implementations
 
-import xyz.mlumeau.kosmos.kore.APOD
+import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryCache
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryCacheImpl
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemote
