@@ -10,7 +10,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import xyz.mlumeau.kosmos.R
-import xyz.mlumeau.kosmos.kore.APOD
+import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.createApplicationScreenMessage
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryCache
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryCacheImpl
