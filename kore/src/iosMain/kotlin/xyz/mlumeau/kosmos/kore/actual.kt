@@ -13,12 +13,6 @@ actual fun platformName(): String {
             UIDevice.currentDevice.systemVersion
 }
 
-fun showHelloCoroutine() {
-    MainScope().launch {
-        helloCoroutine()
-    }
-}
-
 fun getNetworkScope() = MainScope() as CoroutineScope
 
 actual fun requestAPOD(

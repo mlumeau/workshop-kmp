@@ -195,11 +195,11 @@
 			buildConfigurationList = 7ED8979A2239796600F067C2 /* Build configuration list for PBXNativeTarget "kosmos" */;
 			buildPhases = (
 				1E85865598D71762297267E1 /* [CP] Check Pods Manifest.lock */,
+				7ED897A722397C6C00F067C2 /* ShellScript */,
 				7ED8976E2239795800F067C2 /* Sources */,
 				7ED8976F2239795800F067C2 /* Frameworks */,
 				7ED897702239795800F067C2 /* Resources */,
 				7ED897A622397BE700F067C2 /* Embed Frameworks */,
-				7ED897A722397C6C00F067C2 /* ShellScript */,
 				588AE8808B9FA1FFC77B5261 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
