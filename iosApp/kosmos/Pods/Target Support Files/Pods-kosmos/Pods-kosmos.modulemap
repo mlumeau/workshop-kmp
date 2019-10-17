@@ -1,0 +1,6 @@
+framework module Pods_kosmos {
+  umbrella header "Pods-kosmos-umbrella.h"
+
+  export *
+  module * { export * }
+}
