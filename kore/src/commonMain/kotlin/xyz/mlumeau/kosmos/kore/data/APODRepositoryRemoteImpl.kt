@@ -1,6 +1,6 @@
 package xyz.mlumeau.kosmos.kore.data
 
-import xyz.mlumeau.kosmos.kore.NasaAPIRemote
+import xyz.mlumeau.kosmos.kore.service.nasa.NasaAPIRemote
 import xyz.mlumeau.kosmos.kore.service.nasa.NasaApi
 
 class APODRepositoryRemoteImpl : APODRepositoryRemote {

@@ -1,13 +1,13 @@
 package xyz.mlumeau.kosmos.kore.usecases.implementations
 
-import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryCache
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryCacheImpl
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemote
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemoteImpl
+import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.requestAPOD
+import xyz.mlumeau.kosmos.kore.usecases.GetAPOD
 import xyz.mlumeau.kosmos.kore.usecases.GetConnectionState
-import xyz.mlumeau.kosmos.usecases.GetAPOD
 
 class GetAPODImpl(private val getConnectionState: GetConnectionState) : GetAPOD {
 

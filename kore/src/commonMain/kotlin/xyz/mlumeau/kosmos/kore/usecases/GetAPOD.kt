@@ -1,4 +1,4 @@
-package xyz.mlumeau.kosmos.usecases
+package xyz.mlumeau.kosmos.kore.usecases
 
 import xyz.mlumeau.kosmos.kore.model.APOD
 
