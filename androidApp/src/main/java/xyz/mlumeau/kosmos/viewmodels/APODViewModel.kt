@@ -7,7 +7,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import xyz.mlumeau.kosmos.kore.model.APOD
-import xyz.mlumeau.kosmos.usecases.GetAPOD
+import xyz.mlumeau.kosmos.kore.usecases.GetAPOD
 
 class APODViewModel(
     private val getApodUseCase: GetAPOD

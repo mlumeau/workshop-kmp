@@ -1,13 +1,11 @@
-package xyz.mlumeau.kosmos.kore
+package xyz.mlumeau.kosmos.kore.service.nasa
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.call
 import io.ktor.client.response.readText
 import io.ktor.http.HttpMethod
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.serialization.json.Json
 import xyz.mlumeau.kosmos.kore.model.APOD
-import xyz.mlumeau.kosmos.kore.service.nasa.NasaApi
 
 
 internal class NasaAPIRemote(
@@ -32,5 +30,3 @@ internal class NasaAPIRemote(
         const val APOD_URL = "https://api.nasa.gov/planetary/apod?&api_key=DEMO_KEY"
     }
 }
-
-expect fun getNetworkScope() : CoroutineScope
