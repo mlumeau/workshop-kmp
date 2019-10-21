@@ -27,6 +27,6 @@ internal class NasaAPIRemote(
     override suspend fun getAPOD(): APOD = requestAPOD()
 
     companion object {
-        const val APOD_URL = "https://api.nasa.gov/planetary/apod?&api_key=DEMO_KEY"
+        const val APOD_URL = "https://api.nasa.gov/planetary/apod?&api_key=DEMO_KEY&date=2019-10-20"
     }
 }
