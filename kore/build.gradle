@@ -8,7 +8,7 @@ group = 'xyz.mlumeau.kosmos.kore'
 version = 1.0
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         minSdkVersion 21
     }
