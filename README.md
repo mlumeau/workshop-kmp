@@ -6,13 +6,23 @@ Code example repository. For instructions please refer to the [Workshop Page](ht
 
 ## Requirements
 
-* [Android Studio 3.4+](https://developer.android.com/studio/index.html) - ⚠️ Kotlin MPP is broken with 3.5.1. Please use 3.5.0 or 3.6 preview releases ⚠️
-* [XCode 10.1+](https://developer.apple.com/download/more/?=xcode) - If you want to compile the iOS part of the workshop.
+### Android
+
+  * [Android Studio 3.4+](https://developer.android.com/studio/index.html) - ⚠️ Kotlin MPP is broken with Android Studio 3.5.1. Please use Android Studio 3.5.0 or 3.6 preview releases ⚠️
+
+### iOS
+
+*If you want to compile the iOS part of the workshop.* Note: You will need a Mac.
+
+  * [XCode 10.1+](https://developer.apple.com/download/more/?=xcode) - IDE
+  * [Cocoapods](https://cocoapods.org/) - dependency manager
+
 
 ## Contribution guidelines
 
-* Follow the [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
-* We love well documented Pull Requests 😉 !
+  * We love well documented Pull Requests 😉 !
+  * If you notice any issue with the code please fill an issue [here](https://github.com/mlumeau/workshop-kmp/issues). Thanks a lot 🙏!
+  * If you notice any issue with the workshop's instructions please fill an issue [here](https://github.com/RobinCaroff/workshop-kmp/issues). Thanks again 🙏!
 
 ## Created by
   * [CAROFF Robin](https://github.com/RobinCaroff)
