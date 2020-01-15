@@ -1,9 +1,9 @@
 package xyz.mlumeau.kosmos.kore.service.nasa
 
 import io.ktor.client.HttpClient
-import io.ktor.client.call.call
-import io.ktor.client.response.readText
-import io.ktor.http.HttpMethod
+import io.ktor.client.request.get
+import io.ktor.client.statement.HttpResponse
+import io.ktor.client.statement.readText
 import kotlinx.serialization.json.Json
 import xyz.mlumeau.kosmos.kore.model.APOD
 
@@ -13,9 +13,7 @@ internal class NasaAPIRemote(
 ) : NasaApi {
 
     private suspend fun request(urlString: String): String {
-        return client.call(urlString) {
-            method = HttpMethod.Get
-        }.response.readText()
+        return client.get<HttpResponse>(urlString).readText()
     }
 
     private suspend fun requestAPOD() : APOD {
