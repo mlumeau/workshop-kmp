@@ -23,10 +23,8 @@ final class MainViewModel {
         apodRepository.getAPOD(completion: { apod in
             self.apod = apod
             self.onAPODLoaded?(apod)
-            return .init()
         }, failure: { () in
             self.onLoadingError?()
-            return .init()
         })
     }
 }
