@@ -36,10 +36,8 @@ private extension MainViewController {
     private func startLoadingData() {
         apodRepository.getAPOD(completion: { apod in
             self.updateAPODData(apod: apod)
-            return .init()
         }, failure: { () in
             self.onLoadingError()
-            return .init()
         })
     }
     

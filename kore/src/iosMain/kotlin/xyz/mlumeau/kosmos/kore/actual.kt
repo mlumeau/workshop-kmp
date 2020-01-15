@@ -11,11 +11,6 @@ actual fun platformName(): String {
             UIDevice.currentDevice.systemVersion
 }
 
-fun showHelloCoroutine() {
-    MainScope().launch {
-        helloCoroutine()
-    }
-}
 
 actual fun requestAPOD(
     apodRepositoryCache: APODRepositoryCacheImpl,
