@@ -5,17 +5,14 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import xyz.mlumeau.kosmos.R
 import xyz.mlumeau.kosmos.kore.createApplicationScreenMessage
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemote
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemoteImpl
 import xyz.mlumeau.kosmos.kore.model.APOD
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     private val apodRepository: APODRepositoryRemote = APODRepositoryRemoteImpl()
 
@@ -39,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getAPOD() {
-        GlobalScope.launch {
+        launch(Dispatchers.IO) {
             apodRepository.getAPOD()?.let { apod ->
                 withContext(Dispatchers.Main) {
                     updateAPODData(apod)
