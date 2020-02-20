@@ -10,10 +10,10 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import xyz.mlumeau.kosmos.R
-import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.createApplicationScreenMessage
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemote
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemoteImpl
+import xyz.mlumeau.kosmos.kore.model.APOD
 
 class MainActivity : AppCompatActivity() {
 
