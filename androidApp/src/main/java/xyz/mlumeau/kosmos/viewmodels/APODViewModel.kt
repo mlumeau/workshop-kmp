@@ -2,16 +2,16 @@ package xyz.mlumeau.kosmos.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.usecases.GetAPOD
 
 class APODViewModel(
     private val getApodUseCase: GetAPOD
-) : ScopedViewModel() {
+) : ViewModel() {
 
     private var job: Job? = null
 
@@ -29,11 +29,9 @@ class APODViewModel(
     }
 
     private fun startLoadingData() {
-        launch {
+        viewModelScope.launch {
             val apod = getApodUseCase()
-            withContext(Dispatchers.Main) {
-                _apod.value = apod
-            }
+            _apod.value = apod
         }
     }
 }
