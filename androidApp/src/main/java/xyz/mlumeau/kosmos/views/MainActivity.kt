@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import xyz.mlumeau.kosmos.R
-import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.createApplicationScreenMessage
+import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.viewmodels.APODViewModel
 import xyz.mlumeau.kosmos.viewmodels.APODViewModelFactory
 
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         title_tv.text = createApplicationScreenMessage()
 
         val model =
-            ViewModelProviders.of(this, APODViewModelFactory())[APODViewModel::class.java]
+            ViewModelProvider(this, APODViewModelFactory()).get(APODViewModel::class.java)
         model.apod.observe(this, Observer { apod -> updateAPODData(apod) })
     }
 
