@@ -1,12 +1,8 @@
 package xyz.mlumeau.kosmos.kore
 
-import xyz.mlumeau.kosmos.kore.model.APOD
-import xyz.mlumeau.kosmos.kore.usecases.implementations.GetAPODImpl
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
-actual fun platformName(): String {
-    return "Android"
-}
+internal actual val coroutineScope = IOScope() as CoroutineScope
 
-actual fun requestAPOD(getAPODImpl: GetAPODImpl, completion: (APOD) -> Unit, failure: () -> Unit) {
-    TODO("The Android app must use the suspend function instead.")
-}
+internal class IOScope : Scope(Dispatchers.IO)

@@ -1,18 +1,21 @@
 package xyz.mlumeau.kosmos.kore
 
-import kotlinx.coroutines.launch
-import platform.UIKit.UIDevice
-import xyz.mlumeau.kosmos.kore.model.APOD
-import xyz.mlumeau.kosmos.kore.usecases.implementations.GetAPODImpl
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Runnable
+import platform.darwin.dispatch_async
+import platform.darwin.dispatch_get_main_queue
+import kotlin.coroutines.CoroutineContext
 
-actual fun platformName(): String {
-    return UIDevice.currentDevice.systemName() +
-            " " +
-            UIDevice.currentDevice.systemVersion
-}
 
-actual fun requestAPOD(getAPODImpl: GetAPODImpl, completion: (APOD) -> Unit, failure: () -> Unit) {
-    MainScope().launch {
-        completion(getAPODImpl())
+internal class MainDispatcher : CoroutineDispatcher() {
+    override fun dispatch(context: CoroutineContext, block: Runnable) {
+        dispatch_async(dispatch_get_main_queue()) {
+            block.run()
+        }
     }
 }
+
+internal class MainScope : Scope(MainDispatcher())
+
+internal actual val coroutineScope = MainScope() as CoroutineScope
