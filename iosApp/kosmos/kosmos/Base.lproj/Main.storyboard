@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,20 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nG9-eO-Oqi">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="nG9-eO-Oqi">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5KF-kh-QeG">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="665.66666666666663"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geN-xb-LPa">
-                                        <rect key="frame" x="0.0" y="673.66666666666663" width="367" height="35.333333333333371"/>
+                                        <rect key="frame" x="0.0" y="665.66666666666663" width="375" height="35.333333333333371"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzc-RX-O83">
-                                        <rect key="frame" x="0.0" y="717" width="367" height="17"/>
+                                        <rect key="frame" x="0.0" y="701" width="10" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -38,10 +38,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="5KF-kh-QeG" firstAttribute="width" secondItem="nG9-eO-Oqi" secondAttribute="width" id="Gz2-t4-QGC"/>
-                                    <constraint firstItem="yzc-RX-O83" firstAttribute="left" secondItem="nG9-eO-Oqi" secondAttribute="left" constant="8" id="K3k-3V-O0n"/>
-                                    <constraint firstAttribute="right" secondItem="yzc-RX-O83" secondAttribute="right" constant="8" id="RJV-F2-mrN"/>
-                                    <constraint firstItem="geN-xb-LPa" firstAttribute="left" secondItem="nG9-eO-Oqi" secondAttribute="left" constant="8" id="obW-xv-7Ei"/>
-                                    <constraint firstAttribute="right" secondItem="geN-xb-LPa" secondAttribute="right" constant="8" id="uvy-MQ-csM"/>
+                                    <constraint firstItem="geN-xb-LPa" firstAttribute="centerX" secondItem="nG9-eO-Oqi" secondAttribute="centerX" id="aN2-Bo-i1M"/>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="H9b-EF-z6g">
