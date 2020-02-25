@@ -8,7 +8,7 @@ Code example repository. For instructions please refer to the [Workshop Page](ht
 
 ### Android
 
-  * [Android Studio 3.4+](https://developer.android.com/studio/index.html) - ⚠️ Kotlin MPP is broken with Android Studio 3.5.1. Please use Android Studio 3.5.0 or 3.6 preview releases ⚠️
+  * [Android Studio 3.5.3+](https://developer.android.com/studio/index.html) - IDE
 
 ### iOS
 
