@@ -8,10 +8,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import xyz.mlumeau.kosmos.R
-import xyz.mlumeau.kosmos.kore.model.APOD
-import xyz.mlumeau.kosmos.kore.createApplicationScreenMessage
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryCache
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryCacheImpl
+import xyz.mlumeau.kosmos.kore.model.APOD
 
 class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
