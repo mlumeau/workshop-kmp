@@ -43,15 +43,18 @@ private extension MainViewController {
     }
     
     func updateAPODData(apod: APOD) {
-        let url = URL(string: apod.url ?? "")
-        if(apod.media_type == "image" && apod.title?.isEmpty != true){
-            Nuke.loadImage(with: url!, into: self.apodIV)
-            self.titleTV.text = apod.title
-            self.descTV.text = apod.explanation
-        }else{
-            self.titleTV.text = "Sorry, no picture today :("
-        }
         self.progress.isHidden = true
+        
+        titleTV.text = apod.title
+        descTV.text = apod.explanation
+        
+        if(apod.media_type == "image") {
+            if let imageURL = apod.url, let url = URL(string: imageURL) {
+                Nuke.loadImage(with: url, into: self.apodIV)
+            }
+        } else {
+            apodIV.removeFromSuperview()
+        }
     }
     
     func onLoadingError() {}
