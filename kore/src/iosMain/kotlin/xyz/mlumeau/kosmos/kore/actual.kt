@@ -1,46 +1,21 @@
 package xyz.mlumeau.kosmos.kore
 
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
-import platform.UIKit.UIDevice
-import xyz.mlumeau.kosmos.kore.data.APODRepositoryCacheImpl
-import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemoteImpl
-import xyz.mlumeau.kosmos.kore.model.APOD
+import kotlinx.coroutines.Runnable
+import platform.darwin.dispatch_async
+import platform.darwin.dispatch_get_main_queue
+import kotlin.coroutines.CoroutineContext
 
-actual fun platformName(): String {
-    return UIDevice.currentDevice.systemName() +
-            " " +
-            UIDevice.currentDevice.systemVersion
-}
 
-fun getNetworkScope() = MainScope() as CoroutineScope
-
-actual fun requestAPOD(
-    apodRepositoryRemote: APODRepositoryRemoteImpl,
-    completion: (APOD) -> Unit,
-    failure: () -> Unit
-) {
-    getNetworkScope().launch {
-        val apod = apodRepositoryRemote.getAPOD()
-        if (apod != null) {
-            completion(apod)
-        } else {
-            failure()
+internal class MainDispatcher : CoroutineDispatcher() {
+    override fun dispatch(context: CoroutineContext, block: Runnable) {
+        dispatch_async(dispatch_get_main_queue()) {
+            block.run()
         }
     }
 }
 
-actual fun requestAPOD(
-    apodRepositoryCache: APODRepositoryCacheImpl,
-    completion: (APOD) -> Unit,
-    failure: () -> Unit
-) {
-    MainScope().launch {
-        val apod = apodRepositoryCache.getAPOD()
-        if (apod != null) {
-            completion(apod)
-        } else {
-            failure()
-        }
-    }
-}
+internal class MainScope : Scope(MainDispatcher())
+
+internal actual val coroutineScope = MainScope() as CoroutineScope

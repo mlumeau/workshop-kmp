@@ -1,23 +1,18 @@
 package xyz.mlumeau.kosmos.kore
 
-import xyz.mlumeau.kosmos.kore.data.APODRepositoryCacheImpl
-import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemoteImpl
-import xyz.mlumeau.kosmos.kore.model.APOD
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlin.coroutines.CoroutineContext
 
-expect fun platformName(): String
+internal expect val coroutineScope: CoroutineScope
 
-fun createApplicationScreenMessage(): String {
-    return "Kotlin Rocks on ${platformName()}"
+internal abstract class Scope(
+    private val dispatcher: CoroutineDispatcher
+) : CoroutineScope {
+    private val job = Job()
+
+    override val coroutineContext: CoroutineContext
+        get() = dispatcher + job
+
 }
-
-expect fun requestAPOD(
-    apodRepositoryRemote: APODRepositoryRemoteImpl,
-    completion: (APOD) -> Unit,
-    failure: () -> Unit
-)
-
-expect fun requestAPOD(
-    apodRepositoryCache: APODRepositoryCacheImpl,
-    completion: (APOD) -> Unit,
-    failure: () -> Unit
-)

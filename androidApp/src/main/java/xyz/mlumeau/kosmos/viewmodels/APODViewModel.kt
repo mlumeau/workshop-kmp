@@ -3,10 +3,8 @@ package xyz.mlumeau.kosmos.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.launch
-import xyz.mlumeau.kosmos.kore.model.APOD
 import xyz.mlumeau.kosmos.kore.data.APODRepositoryRemote
+import xyz.mlumeau.kosmos.kore.model.APOD
 
 class APODViewModel(
     private val apodRepository: APODRepositoryRemote
@@ -21,10 +19,17 @@ class APODViewModel(
     }
 
     private fun startLoadingData() {
-        viewModelScope.launch {
-            apodRepository.getAPOD()?.let { apod ->
-                _apod.value = apod
-            }
-        }
+        apodRepository.getAPOD(
+            this::onAPODLoaded,
+            this::onAPODLoadingError
+        )
+    }
+
+    private fun onAPODLoaded(apod: APOD) {
+        _apod.postValue(apod)
+    }
+
+    private fun onAPODLoadingError() {
+        // Handle the error
     }
 }
