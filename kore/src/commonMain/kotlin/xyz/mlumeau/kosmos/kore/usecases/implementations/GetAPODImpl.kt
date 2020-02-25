@@ -23,11 +23,16 @@ class GetAPODImpl(private val getConnectionState: GetConnectionState) : GetAPOD 
 
     override fun getAPOD(completion: (APOD) -> Unit, failure: () -> Unit) {
         coroutineScope.launch {
+            var apod: APOD? = null
             try {
-                val apod = getAPOD()
-                completion(apod)
+                apod = getAPOD()
             } catch (e: Exception) {
                 println(e.message)
+            }
+
+            if (apod != null) {
+                completion(apod)
+            } else {
                 failure()
             }
         }
