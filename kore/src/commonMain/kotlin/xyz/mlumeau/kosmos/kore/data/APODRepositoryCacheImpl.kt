@@ -1,15 +1,29 @@
 package xyz.mlumeau.kosmos.kore.data
 
+import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
+import xyz.mlumeau.kosmos.kore.coroutineScope
 import xyz.mlumeau.kosmos.kore.model.APOD
-import xyz.mlumeau.kosmos.kore.requestAPOD
 
 class APODRepositoryCacheImpl : APODRepositoryCache {
 
-    override suspend fun getAPOD(): APOD? = Json.nonstrict.parse(APOD.serializer(), APOD_STUB)
+    private suspend fun getAPOD(): APOD? = Json.nonstrict.parse(APOD.serializer(), APOD_STUB)
 
     override fun getAPOD(completion: (APOD) -> Unit, failure: () -> Unit) {
-        requestAPOD(this, completion, failure)
+        coroutineScope.launch {
+            var apod: APOD? = null
+            try {
+                apod = getAPOD()
+            } catch (e: Exception) {
+                println(e.message)
+            }
+
+            if (apod != null) {
+                completion(apod)
+            } else {
+                failure()
+            }
+        }
     }
 
     companion object {
